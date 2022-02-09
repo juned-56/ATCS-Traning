@@ -1,0 +1,181 @@
+==================Assignement-Session-1=======================
+
+1. Create an Array of Employee class and initialize array elements with different employee objects.
+   public class Employeee
+{
+    int id;
+    String name;
+    public  Employeee(int i, String str)
+    {
+        id = i;
+        name = str;
+    }
+
+    public static void main(String[] args) {
+        Employeee obj[] = new Employeee[5];
+        obj[0] = new Employeee(10, "Jhon");
+        obj[1] = new Employeee(11, "Tone");
+        obj[2] = new Employeee(12, "Mone");
+        obj[3] = new Employeee(13, "Cone");
+        obj[4] = new Employeee(14, "Lone");
+        obj[0].display();
+        obj[1].display();
+        obj[2].display();
+        obj[3].display();
+        obj[4].display();
+    }    
+    public void display()
+    {
+        System.out.println("Employee Id: "+id+" "+"Employee Name: "+name);
+        System.out.println();
+    }
+}
+
+
+2. Create a class Beverages,the Tea and Coffee sub classes are using the common method addMilk and they are implementing abstract method void addIngredient.
+   abstract class Beverages {
+    abstract void addIngredient();
+	public void addMilk() {
+		System.out.println("This a Method addMilk in Beverages Class");
+	}
+}
+class Tea extends Beverages {
+
+	void addIngredient() {
+		System.out.println("This a Method addMilk in Sub or Tea Class");
+	}
+}
+class Coffee extends Beverages {
+	void addIngredient() {
+		System.out.println("This a Method addMilk in Sub or Coffee Class");
+	}
+}
+class Sample {
+	public static void main(String[] args) {
+		Coffee obj = new Coffee();
+		obj.addMilk();
+        obj.addIngredient();
+	}
+}
+
+
+
+=====================================Session-2======================================
+
+1. Implementing Accessibility of members across packages and classes
+   //Package1 Access1
+   //fileName Accesss1.java
+   
+   package Access1;
+interface MyInterface {
+    String name = "My name is juned khan";
+    void MyInterface();
+}
+public class Accesss1 {
+	String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}
+
+
+   //Pacakage2 Access2
+   //fileName Accesss3.java
+  
+  package Access2;
+interface My1Interface {
+    String name = "Juned";
+    public void InterfaceMethod();
+	}
+abstract class Myabstract {
+    String name = "This is Abstract class";
+    abstract public void print();
+}
+public class Accesss3 {
+	int f;
+    int s;
+    Accesss3(int a, int b)
+    {
+        this.f = a;
+        this.s = b;
+    }
+    public int add()
+    { 
+    	return this.f + this.s; 
+    }
+}
+
+   //Pacakage2 Access2
+   //fileName Accesss2.java
+  
+   package Access2;
+import Access1.*;
+public class Accesss2 implements My1Interface {
+	public void InterfaceMethod()
+    {
+        System.out.println("This is the interface..........");
+    }
+	public static void main(String args[])
+    {
+        Accesss1 ob = new Accesss1();
+        ob.setName("This is Setter Method");
+        System.out.println(ob.getName());
+        Accesss2 ob2 = new Accesss2();
+        ob2.InterfaceMethod();
+    }
+}
+
+
+
+
+2. create a PrivateAccess class, private data members when we are trying to call the private data member and method of a PrivateClass class it gives us a compile-time error because private data members and methods have an access level to PrivateClass class only.
+   class PrivateAccess {
+    private int id = 101;
+    private String name = "Juned khan";
+    private void display(int id, String name)  
+ {  
+     this.id = id;
+     this.name = name;
+     System.out.println("Private method access: ");
+     System.out.println("The id is: "+id+"The name is: "+name);  
+ }  
+       
+}  
+public class PrivateExample2 {  
+public static void main(String[] args) {  
+    PrivateAccess a=new PrivateAccess();  
+   a.display();  
+      
+}  
+}
+
+
+3. create a class ProtectedClass under a package pack1 in which we declare a protected method show(), create a class ProtectedAccess under a package mypack1 and import a package pack1.
+   
+//fileName ProtectedClass.java
+
+  package Pack1;  
+public class ProtectedClass {
+	protected void show()
+    {
+        System.out.println("This is Protected Method");
+    }
+}
+
+
+//fileName ProtectedAccess.java
+  package myPack1;
+import Pack1.ProtectedClass;
+class ProtectedAccess extends ProtectedClass{
+	public static void main(String args[])
+    {
+		ProtectedAccess  pa = new ProtectedAccess();
+        pa.show();
+    }
+}
+
