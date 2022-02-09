@@ -1,0 +1,67 @@
+1. Create a folder and insert three files.
+>> mkdir Files
+>> touch f1.txt
+>> touch f2.txt
+>> touch f3.txt
+
+2. ls: command list out all the files which you added(use man command use 3 or 4 commands)
+>> ls
+
+3. mkdir==>to create new directory
+>> mkdir NewFile
+
+4. cd==>change directory
+>> cd
+
+5. touch==>to create an empty file
+>> touch f3.txt
+
+6. rmdir-->to remove directory
+>> mkdir Juned
+>> rmdir Juned
+
+7. rm=> to remove a file
+>> mkdir Filess
+>> touch f6.txt
+>> rm f6.txt
+
+8. cal==> current month calendar
+>> cal
+
+9. date==>to display current date and time.
+>> cal
+
+10. help--> to display list of commands
+>> help
+
+11. hello-->to display brief system information
+>> hello
+
+12. clear-->to clear the screen
+>> clear
+
+13. exit-->to close the current session. 
+>> exit
+
+14. mkdir: ls: lists all the contents of the specified directory.It can be used to obtain information on
+
+           the files and directories within it.
+>> ls
+
+15.  cd: used to change from one directory to another
+>> cd files
+
+16.  pwd: prints name of the current working directory.
+>> pwd
+
+17. cp: copy files or directories and is used to make copies of the new files and directories.
+>> cp file file_backup
+--cp is to copy a file in the current working directory
+
+18. mv: move or rename files or directories.It is used to change the name of files or directories,         or to move them into other directories. 
+>> mv dir1 dir2
+--to move the file file1 from the current working directory to the /tmp directory you would run:
+
+19. rmdir: remove files or directories. rmdir removes named empty directories.
+>> rmdir filesss
+-- used to remove directory
