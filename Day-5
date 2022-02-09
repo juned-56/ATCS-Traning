@@ -1,0 +1,282 @@
+===================Day-5-Assingnement-Session-1=======================
+
+1. Write Java programs to create an array an initialize and print the elements.
+   public class Array{
+    public static void main(String[] args) {
+        int arr[] = {3, 1, 8, 5, 9};
+        for(int i = 0; i <= 4; i++)
+        {
+            System.out.println(arr[i]);
+        }
+    }
+}
+
+
+2. Calculate the average of numbers using Array.
+   public class Array{
+    public static void main(String[] args) {
+        double arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+        double sum = 0;
+        double avg;
+        int n = arr.length;
+        for(int i = 0; i < n; i++)
+        {
+            sum += arr[i];
+        }
+        avg = sum / n;
+        System.out.format("The average is: %.2f ",avg);
+    }
+}
+
+
+3. Print the array elements using for each loop.
+   public class Foreach {
+    public static void main(String[] args) {
+        int arr[] = {23, 56, 78, 34, 12, 90};
+        for(int elm : arr)
+        {
+            System.out.println(elm);
+        }
+    }
+}
+
+
+4. Convert char Array to String
+   public class CharArrToStr {
+    public static void main(String[] args) {
+        char arr[] = {'j', 'u', 'n', 'e', 'd'};
+        String str = String.valueOf(arr);
+        System.out.println(arr);
+    }    
+}
+
+
+5. Add two Matrix using Multi-dimensional Arrays
+   public class TwoDMatSum {
+    public static void main(String[] args) {
+        int arr1[][] = {{2, 5, 6}, {4, 6, 8}, {1, 4, 3}};
+        int arr2[][] = {{1, 8, 7}, {2, 5, 6}, {4, 6, 8}};
+        int r = arr1.length;
+        int c = arr2.length;
+        int sum[][] = new int[r][c];
+        for(int i = 0; i < r && i < c; i++)
+        {
+            for(int j = 0; j < r && j < c; j++)
+            {
+                sum[i][j] = arr1[i][j] + arr2[i][j];
+            }
+        }
+        for(int i = 0; i < r && i < c; i++)
+        {
+            for(int j = 0; j < r && j < c; j++)
+            {
+                System.out.print(sum[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+6. Write a java program to get the class name of array in java.
+   public class Arrayclas
+{
+    public static void main(String[] args) {
+        int arr[] = {23, 56, 78};
+        System.out.println(arr.getClass().getName());
+    }    
+}
+
+
+7. Find out the min numbers in an array.
+   public class Min
+{
+    static void min(int arr[])
+    {
+        int minn = arr[0];
+        for(int i = 0; i < arr.length; i++)
+        {
+            if(minn > arr[i])
+            minn = arr[i];
+        }
+        System.out.println(minn);
+    }
+    public static void main(String[] args)
+    {
+        int arr[] = {12, 6, 8, 23, 56};
+        min(arr);
+    }    
+}
+
+
+==========================Assignment**Session-2======================
+
+1. Create a student class using student properties and create and execute a method without a constructor.
+public class Student {
+        int id = 101;
+        String name = "Juned";
+        String address = "Mumbai";
+        String course = "Btech";
+        char section = 'A';
+        void display()
+        {
+            System.out.println("Studen Id is: " +id);
+            System.out.println("Studen Name is: "+name);
+            System.out.println("Studen Address is: "+address);
+            System.out.println("Studen Course is: "+course);
+            System.out.println("Studen Section is: "+section);
+        }
+    public static void main(String[] args) {
+        Student st = new Student();
+        st.display();
+    }
+}
+
+
+2. Create a Product class with constructor (observe the difference with or without constructor)
+   public class Product {
+    Product() //constructor
+    {
+        System.out.println("This is a non-pram Constructor");
+    }
+    public static void main(String[] args) {
+        Product pt = new Product();
+       
+    }   
+}
+
+
+3. Create a Student class without parameters and with parameters by using constructor.
+   public class Student { 
+    public static void Para()
+    {
+        System.out.println("Hello how are you!");
+    }
+    public static void main(String args[])
+    {
+        Para();
+    }
+}
+
+
+
+
+==============with parameters===================
+public class Student {
+   int id;  
+        String name;  
+        Student(int i,String n){  
+        id = i;  
+        name = n;  
+    }  
+      
+    void display()
+    {
+        System.out.println(id+" "+name);
+    }  
+   
+    public static void main(String args[]){   
+    Student s1 = new Student(101,"Hp");  
+    Student s2 = new Student(202,"Vp");  
+      
+    s1.display();  
+    s2.display();  
+    }
+}
+
+
+
+4. Create a Calculator class and create static methods with or without return type.
+   public class Calculator {
+    public static void Sum1(int a, int b)
+    {
+        int sum1 = a + b;
+        System.out.println("This is without return type ");
+        System.out.println("The sum is: "+sum1);
+    }
+    public static int Sum2(int a, int b)
+    {
+        int sum2 = a + b;
+        System.out.println("This is with return type ");
+        return sum2;
+    }
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 6;
+        Sum1(a, b);
+        System.out.println("The sum is: "+Sum2(a, b));
+    }
+}
+
+
+
+5. Create a Calculator class and create instance methods with or without return type.
+    public class Instance {
+
+    void Sum1(int a, int b)
+    {
+        int sum1 = a + b;
+        System.out.println("This is without return type ");
+        System.out.println("The sum is: "+sum1);
+    }
+    int Sum2(int a, int b)
+    {
+        int sum2 = a + b;
+        System.out.println("This is with return type ");
+        return sum2;
+    }
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 6;
+        Instance ac = new Instance();
+        ac.Sum1(a, b);
+        System.out.println("The sum is: "+ac.Sum2(a, b));
+    }
+}
+
+
+
+6. Create class Test print all the methods of String.
+   public class StringMethodClass {
+    public static void main(String[] args) {
+		String str = "Java is fun to learn";
+		String s1= "JAVA";
+		String s2= "Java";
+		String s3 = "  Hello Java  ";
+		
+		System.out.println("Char at index 2(third position): " + str.charAt(2));
+		System.out.println("After Concat: "+ str.concat("-Enjoy-"));
+		System.out.println("Checking equals ignoring case: " +s2.equalsIgnoreCase(s1));
+		System.out.println("Checking equals with case: " +s2.equals(s1));
+		System.out.println("Checking Length: "+ str.length());
+		System.out.println("Replace function: "+ str.replace("fun", "easy"));
+		System.out.println("SubString of str: "+ str.substring(8));
+		System.out.println("SubString of str: "+ str.substring(8, 12));
+		System.out.println("Converting to lower case: "+ str.toLowerCase());
+		System.out.println("Converting to upper case: "+ str.toUpperCase());
+		System.out.println("Triming string: " + s3.trim());
+		System.out.println("searching s1 in str: " + str.contains(s1));
+		System.out.println("searching s2 in str: " + str.contains(s2));
+
+		char [] charArray = s2.toCharArray();
+		System.out.println("Size of char array: " + charArray.length);
+		System.out.println("Printing last element of array: " + charArray[3]);
+
+	}
+}
+
+
+
+7. Create a class Add add two numbers by using Wrapper class.
+   public class Wrapper {  
+   public static void main(String args[])  
+     {  
+         int x = Integer.parseInt(args[0]);   
+         int y = Integer.parseInt(args[1]);   
+         int sum = x + y;  
+             System.out.println("The sum of x and y is: " +sum);  
+     }  
+}  
+
+
+
