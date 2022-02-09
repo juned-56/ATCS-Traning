@@ -1,0 +1,202 @@
+===========Session 1***ASSIGNMENT==============
+
+1. Write how many types of shells?
+	1. Broune shell
+	2. korn shell
+	3. C shell
+	4. T shell
+	5. Z shell
+	6. Bash shell
+2. Create a shell script file.
+	gedit <file_name.sh>
+3. Create a shell script file and execute (hello world)
+	gedit file1.sh
+>> echo "Hello World"
+ Then ctrl + s and ctrl + q
+>> ./file1.sh
+>> ls -l
+>> chmod u+x file1.sh
+>> ./file1.sh
+
+4. Create a shell script and take the user permission to execute the file.
+	gedit file2.sh
+>> echo "Hello World"
+ Then ctrl + s and ctrl + q
+>> ./file2.sh
+>> ls -l
+>> chmod u+x file1.sh
+>> ./file2.sh
+
+5. How to switch one shell to another shell.(copy and paste)
+First, find out the available shells on your Linux box, runcat /etc/shells
+Type chsh and press Enter key
+You need to enter the new shell full path. For example, /bin/ksh
+Log in and log out to verify that your shell changed corretly on Linux operating systems
+
+>> cat /etc/shells
+>> grep "zsh" /etc/shells
+>> grep "fish" /etc/shells
+
+6. By using sha-bang execute one file.
+	>>gedit file4.txt
+>> #!/bin/sh
+>> echo "Hello!"
+ctrl + s and ctrl + q
+>> sh file4.sh
+
+7. Consider the following variable declaration
+
+           echo name  ==>name 
+
+            echo $name  ==>valid 
+
+           echo '$name' ==>$name
+
+           echo "$name"===>valid 
+>> gedit file5.sh
+>> #!/bin/sh
+>> name="juned"
+>>echo $name
+
+>>if [$name= "Juned"]
+>>then
+>>echo "Yes"
+>>else
+>>echo "No"
+>>fi
+
+8. To print the number of files in the current working directory 
+>> pwd
+>> ls
+
+9. To display the number of lines present in the file
+>> wc -l sum.sh
+
+10. print current working directory.
+>> pwd
+
+11. write a  script to read employee details and save to the emp.txt file.
+>> gedit file6.sh
+>> read -p "Enter the employee name: " name
+>> read -p "Enter the employee address: " adr
+>> read -p "Enter the employee phone: " phn
+>> read -p "Enter the employee salary: " sal
+>> echo "$name"
+>> echo "$adr"
+>> echo "$phn"
+>> echo "$sal"
+ctrl + s and ctrl + q
+>> ./file6.sh
+>> ls -l
+>> chmod u+x file6.sh
+>> ./file6.sh
+
+12. write a script to read name from the end user and if name is sathyathen display
+Some special messages.
+>> gedit file7.sh
+>> read -p "Enter the name: " name
+>> if [$name="sathaya"]
+>> then
+>> echo "How are you Sathaya"
+>> else
+>> echo "not matching"
+>> fi
+
+13. Write a simple if else statement.
+>> gedit file8.sh
+>> read -p "Enter a number: " n
+>> if [$n=10]
+>> then
+>> echo "this is Ten"
+>> else
+>> echo "Not Ten"
+>> fi
+
+14. write a simple case atatement.
+
+read -p "enter any digit from 0 to 9: " n
+case $n in
+0)
+echo "this is Zero"
+;;
+1)
+echo "this is one"
+;;
+2)
+echo "this is two"
+;;
+3)
+echo "this is three"
+;;
+4)
+echo "this is four"
+;;
+5)
+echo "this is five"
+;;
+6)
+echo "this is six"
+;;
+7)
+echo "this is seven"
+;;
+8)
+echo "this is eight"
+;;
+9)
+echo "this is nine"
+;;
+
+*)
+default echo "nothing"
+;;
+esac
+
+
+===========Session 2***ASSIGNMENT==============
+
+1. Create a local git repository
+>> mkdir myrepo
+>> cd myrepo
+>> git init
+
+2. Commit the initial code
+>> git add .
+>> git commit -m "message"
+
+3. Update the code
+>> cat>>file.txt
+	//add some text 
+>> cat file.txt
+
+4. Use git commands to
+git config
+git init
+git clone
+git add
+git commit
+git diff
+git reset
+git status
+git rm
+git log
+git show
+git tag
+git branch
+git checkout
+git merge
+git remote
+git push
+git pull
+git stash
+
+
+5. List the changes
+>> git diff
+
+6. Create branch
+>> git branch <branch_name>
+
+7. Merge branch
+>> git checkout master
+>> git merge <branch_name>
