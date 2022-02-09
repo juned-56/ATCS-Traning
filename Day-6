@@ -1,0 +1,413 @@
+==================session-1-Assingnment===================
+
+1. Print default values of static & instance variables for different data types.
+   public class DefaultInstanceValue {
+    int number;         
+    float ratio;        
+    boolean success;    
+    double d;
+    String name;        
+    Object obj;
+    char ch;
+    short sh;         
+    long lg;
+    public static int nn;         
+    public static float r;        
+    public static boolean ss;    
+    public static double dd;
+    public static String n;        
+    public static Object o;
+    public static char c;
+    public static short sss;         
+    public static long l;
+    public void print() {
+        System.out.println("Integer = " + number);
+        System.out.println("Float = " + ratio);
+        System.out.println("boolean = " + success);
+        System.out.println("String = " + name);
+        System.out.println("double = " + d);
+        System.out.println("Object = " + obj);
+        System.out.println("Char = " + ch);
+        System.out.println("Short = " + sh);
+        System.out.println("long = " + lg);
+    }
+    public static void printff() {
+        System.out.println("Integer = " + nn);
+        System.out.println("Float = " + r);
+        System.out.println("boolean = " + ss);
+        System.out.println("String = " + n);
+        System.out.println("double = " + dd);
+        System.out.println("Object = " + o);
+        System.out.println("Char = " + c);
+        System.out.println("Short = " + sss);
+        System.out.println("long = " + l);
+    }
+ 
+    public static void main(String[] args) {
+        new DefaultInstanceValue().print();
+        new DefaultInstanceValue().printff();
+    }
+}
+
+
+
+2. Build a class Employee which contains details about the employee and compile and run its instance.
+   public class EmployeeDetailsInstance {
+    int id = 10;
+    String name = "Juned";
+    int salary = 500000;
+    String dep = "IT";
+    public void Employee()
+    {
+        System.out.println("Employee Id: "+id);
+        System.out.println("Employee Name: "+name);
+        System.out.println("Employee Salary: "+salary);
+        System.out.println("Employee Dep: "+dep);
+    }
+    public static void main(String[] args) {
+        EmployeeDetailsInstance em = new EmployeeDetailsInstance();
+        em.Employee();
+    }
+}
+
+
+3. instance methods.
+   public class InstanceMethod {
+    int id;
+    String name = "";
+    public void Instancee(int id, String name)
+    {
+        this.id = id;
+        this.name = name;
+    }
+    public static void main(String[] args) {
+        InstanceMethod im = new InstanceMethod();
+        im.Instancee(20, "Juned");
+        System.out.println(im.id);
+        System.out.println(im.name);
+    }
+}
+
+
+===================Instance method in different class =======================
+
+  class class1 {      
+      void add()                
+      { 
+        int a= 2;
+        int b= 3;
+        System.out.println("The sum of 2 and 3 is :" + (a+b));
+      }
+  }
+  class InstanceMethod {
+      public static void main (String[] args) {        
+          class1 obj = new class1();           
+          obj.add();
+      }
+  }
+  
+
+
+
+
+4. Create Student class with global variables and related methods with constructor and without constructor
+   public class GlobalVariable {
+    int id;
+    String name;
+  
+    public GlobalVariable(int id, String name) {
+      this.id = id;
+      this.name = name;
+    }
+    public void display(int id, String name) {
+        this.id = id;
+        this.name = name;
+        System.out.println("The id is: "+id);
+        System.out.println("The name is: "+name);
+      }
+  
+    public static void main(String[] args) {
+        GlobalVariable gv = new GlobalVariable(101, "Juned");
+      System.out.println(gv.id + " " + gv.name);
+      gv.display(202, "Javed");
+    }
+  }
+
+
+5. observe the difference between methods calling and constructor calling.
+   class DiffCallConstMeth {
+    int num;
+    String name;
+    DiffCallConstMeth()
+    {
+        System.out.println("Constructor called");
+    }
+    public static int addSum(int a, int b)
+   {
+       int sum = 0;
+       sum = a + b;
+       return sum;
+   }  
+    public static void main(String[] args)
+    {
+        int a = 10;
+        int b = 20;
+        DiffCallConstMeth df = new DiffCallConstMeth();
+        System.out.println(df.name);
+        System.out.println(df.num);
+        System.out.println(addSum(a, b));
+    }
+}
+
+6.  Build a class and print call by Refrence.
+    public class CallByReference {
+    int Number;
+    void Main() 
+    { 
+        Number = 0;
+    }
+ 
+    static void update(CallByReference ob) 
+    { 
+        ob.Number++; 
+    }
+ 
+    public static void main(String[] args)
+    {
+        CallByReference ob = new CallByReference();
+ 
+        System.out.println("Number value: "+(ob.Number));
+ 
+        update(ob);
+ 
+        System.out.println("Updated Number value: "+(ob.Number));
+    }
+}
+
+
+
+
+
+
+
+============================Session-2-Assingnement==================================
+1. Create a class Vehicle and encapsulate the data members.
+   
+Vehical.java class
+
+public class Vehical {
+    private int speed;
+    private String brand;
+    private int nog;
+    public int getSpeed(){
+        return speed;
+    }
+
+    public String getBrand(){
+        return brand;
+    }
+
+    public int getNog(){
+        return nog;
+    }
+
+    public void setNog(int newValue){
+        nog = newValue;
+    }
+
+    public void setBrand(String newValue){
+        brand = newValue;
+    }
+
+    public void setSpeed(int newValue){
+        speed = newValue;
+    }    
+}
+
+
+EncapsTest.java class:
+
+public class EncapsTest{
+    public static void main(String args[]){
+        Vehical obj = new Vehical();
+         obj.setBrand("BMW");
+         obj.setNog(7);
+         obj.setSpeed(450);
+         System.out.println("Employee Name: " + obj.getBrand());
+         System.out.println("Employee SSN: " + obj.getSpeed());
+         System.out.println("Employee Age: " + obj.getNog());
+    } 
+}
+
+
+2. Create demo applications to illustrate different types of inheritance.
+   
+Single inheritance:
+
+	public class Inheritance2 {
+    public void neww()
+    {
+        System.out.println("The sum is Super class");
+
+    }
+}
+     class Inheritance3 extends Inheritance2{
+       public void new1()
+        {
+            System.out.println("The sum is: ");
+        }
+    public static void main(String[] args)
+     {
+        Inheritance3 in = new Inheritance3();
+        in.neww();
+        in.new1();
+    }
+}
+
+
+
+Multilevel inheritance:
+
+	public class Inheritance4 {
+   public void methodX()
+   {
+     System.out.println("Class X method");
+   }
+}
+ class Y extends Inheritance4
+{
+public void methodY()
+{
+System.out.println("class Y method");
+}
+}
+class Z extends Y
+{
+   public void methodZ()
+   {
+     System.out.println("class Z method");
+   }
+   public static void main(String args[])
+   {
+     Z obj = new Z();
+     obj.methodX(); 
+     obj.methodY(); 
+     obj.methodZ(); 
+  }
+}
+
+
+Hierarchical inheritance:
+	
+	public class Inheritance5 { 
+    void eat()
+    {
+        System.out.println("eating...");
+    }  
+}  
+    class Dog extends Inheritance5
+    {  
+    void bark()
+    {
+        System.out.println("barking...");
+    }  
+}  
+    class Cat extends Inheritance5
+    {  
+    void meow()
+    {
+        System.out.println("meowing...");
+    }  
+}  
+    class TestInheritance3{  
+    public static void main(String args[]){  
+    Cat c=new Cat();  
+    c.meow();  
+    c.eat();    
+    }
+}  
+
+Hybrid inheritance:
+	
+	public class Inheritance6 {
+    
+   public void disp()
+   {
+	System.out.println("C");
+   }
+}
+
+class A extends Inheritance6
+{
+   public void disp()
+   {
+	System.out.println("A");
+   }
+}
+
+class B extends Inheritance6
+{
+   public void disp()
+   {
+	System.out.println("B");
+   }
+	
+}
+
+class D extends A
+{
+   public void disp()
+   {
+	System.out.println("D");
+   }
+   public static void main(String args[]){
+
+	D obj = new D();
+	obj.disp();
+   }
+}
+
+
+
+3. 
+   public class Animall {
+    public void Eat(){
+        System.out.println("Animals are in the forest");
+    }
+    class Dog extends Animall{
+        public void Eat(){
+            System.out.println("Dog is eating");
+        }
+    }
+    public static void main(String[] args) {
+        Animall dg = new Animall();
+        dg.Eat();
+    }
+}
+
+
+4. subclass override the method in the superclass.
+   class Animal {
+    public void move() {
+       System.out.println("speed is: 6600");
+    }
+ }
+ 
+ class Dog extends Animal {
+    public void move() {
+       System.out.println("speed is: 7800");
+    }
+ }
+ 
+  class TestDog {
+ 
+    public static void main(String args[]) {
+       Animal a = new Animal();   
+       Animal b = new Dog();  
+ 
+       a.move(); 
+       b.move();   
+    }
+ }
+
+
