@@ -1,0 +1,69 @@
+1. Write an algorithm to find the area of the triangle 
+
+STEP 1. START
+STEP 2. READ INPUT b, h
+STEP 3. CALCULATE AREA (b * h) / 2
+STEP 4. PRINT AREA
+STEP 5. End
+
+3.Write a pseudo code to perform the basic arithmetic operations. 
+
+STEP 1. START
+STEP 2. READ INPUTS a, b
+STEP 3. PERFORM ADDITION OPERATION on a , b (a + b)
+STEP 4. PERFORM SUBTRACTION OPERATION  on a , b (a - b)
+STEP 5. PERFORM MULTIPLICATION OPERATION  on a , b (a * b)
+STEP 6. PERFORM DIVISION OPERATION  on a , b (a / b)
+STEP 7. PERFORM MODULUS OPERATION  on a , b (a % b)
+STEP 8. Display result of addition, value of Z on the monitor with the message "The sum of a and b is:"
+STEP 9. Display result of subtraction, value of p on the monitor with the message "The sub of a and Yb is:"
+STEP 10. Display result of multiplication, value of q on the monitor with the message "The mul of a and b is:"
+STEP 11. Display result of division, value of r on the monitor with the message "The div of a and b is:"
+STEP 12. Display result of modulus, value of s on the monitor with the message "The mod of a and b is:"
+STEP 9. End
+
+
+
+6.Write an algorithm to calculate the simple interest using the formula.
+
+Step 1 : START 
+Step 2 : Declare variables  p , n , r  and  si
+Step 3 : Read the values of variable  p ( principal ) , n ( Number of years ) , r ( Rate of Interest )
+Step 4 : calculate the values of   si = ( p * n * r )/100 
+Step 5 : Display si ( simple interest )
+Step 6 : STOP 
+
+7.Write an algorithm to find the largest of three numbers X, Y,Z
+
+
+Step 1. START
+Step 2. Read the three numbers to be compared, as A, B and C.
+Step 3. Check if A is greater than B.
+  3.1 If true, then check if A is greater than C.
+    3.1.1 If true, print 'A' as the greatest number.
+    3.1.2 If false, print 'C' as the greatest number.
+  3.2 If false, then check if B is greater than C.
+    3.1.1 If true, print 'B' as the greatest number.
+    3.1.2 If false, print 'C' as the greatest number.
+Step 4. STOP
+
+8.Write an algorithm which will test whether a given integer value is prime or not.
+
+Step 1: START
+Step 2: Read number n
+Step 3: Set f=0 Step 4: For i=2 to n-1
+Step 5: If n mod 1=0 then
+Step 6: Set f=1 and break
+Step 7: Loop
+Step 8: If f=0 then
+print 'The given number is prime'
+		else
+print 'The given number is not prime'
+Step 9: STOP
+
+
+
+
+
+
+
