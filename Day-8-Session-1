@@ -1,0 +1,153 @@
+===========================Day-8-Assignement-Session-1============================
+1. Create sample classes to understand boxing & unboxing.
+   
+	//Boxing
+
+public class Boxing{
+    public static void main(String[] args)
+    {
+        int a = 10;
+        Integer i = new Integer(a);
+        int a2 = 20;
+        System.out.println(i+" "+a2);
+    }
+}
+
+
+	//UnBoxing
+
+public class Unboxing {
+    public static void main(String[] args) {
+        Integer i = new Integer(10);
+        int a = i;
+        System.out.println(a);
+    }
+    
+}
+
+
+2. Use different methods of java defined wrapper classes.
+   public class WrapperMethods {
+    public static void main(String[] args) {
+    Integer in1 = new Integer(18);
+    Integer in2 = new Integer("18");
+    Integer in3= new Integer(24);
+    Float flo1 = new Float("2.25f");
+    Float flo2 = new Float("20.43f");
+    Float flo3 = new Float(2.25f);
+    System.out.println("Comparing using compareTo Object1 and Object2: " + in1.compareTo(in2));
+    System.out.println("Comparing using compareTo Object1 and Object3: " + in1.compareTo(in3));
+    System.out.println("Comparing using equals Object1 and Object2: " + in1.equals(in2));
+    System.out.println("Comparing using equals Object1 and Object3: " + in1.equals(in3));
+    System.out.println("Comparing using equals Object1 and Object3: " + in1.equals(in3));
+    System.out.println("Comparing using compare flo1 and flo2: " +Float.compare(flo1,flo2));
+    System.out.println("Comparing using compare flo1 and flo3: " +Float.compare(flo1,flo3));
+    //Addition of Integer with Float
+    Float flo = in1.floatValue() + flo1;
+    System.out.println("Addition of intObj1 and flo1: "+ in1 +"+" +flo1+"=" +flo );
+	}
+}
+
+
+3. create a class and convert all primitive datatypes into wrapper classes.
+   public class WrapperDataTypesConversion {
+    public static void main(String[] args) {
+        byte b = 5;
+        short s = 10;
+        int i = 15;
+        float f = 12.5f;
+        char c = 'j';
+        long l = 1234563;
+        double d = 120.20;
+        boolean bl = true;
+        Byte bt = new Byte(b);
+        Short sr = new Short(s);
+        Integer in = new Integer(i);
+        Float ft = new Float(f);
+        Character ch = new Character(c);
+        Long lg = new Long(l);
+        Double db = new Double(d);
+        Boolean bll = new Boolean(bl);
+        System.out.println("The converted class Objects(wrapped Objects): ");
+        System.out.println("Byte data type: "+bt);
+        System.out.println("Short data type: "+sr);
+        System.out.println("Int data type: "+in);
+        System.out.println("Float data type: "+ft);
+        System.out.println("Char data type: "+ch);
+        System.out.println("Long data type: "+lg);
+        System.out.println("Double data type: "+db);
+        System.out.println("Boolean data type: "+bll);
+    }
+}
+
+
+4. create an EnumClass define enum inside class traverse it.
+   public class Enum {
+    enum Level{
+        ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, 
+    }
+    public static void main(String[] args) {
+        for(Level obj: Level.values()){
+            System.out.print(obj+" ");
+        }
+    }
+}
+
+
+5. Create a class SortAscending, initialize the array values and display original order and sort in ascending order.
+   import java.io.*;
+import java.util.*;
+import java.util.Scanner;
+import java.util.Arrays;
+public class SortAscending {
+    public static void sortArray(int arr[], int n)
+    {
+        Arrays.sort(arr);
+        System.out.println("Sorted Array is: "+Arrays.toString(arr));
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Size of Array: ");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        System.out.println("Enter the "+n+" Element: ");
+        for(int i = 0; i < n; i++)
+        {
+            arr[i] = sc.nextInt();
+        }
+        sortArray(arr, n);
+    }
+}
+
+
+6. Create a class and apply static import package into that class
+   import static java.lang.System.*;
+public class StaticImport {
+    public static void main(String[] args) {
+    out.println("Welcome to static import");
+    }
+}
+
+
+7. create a class and create deafault and param construtcor and create constructor chaining.
+   public class ConstructorEx {
+	public ConstructorEx() {
+		this("Juned");
+		System.out.println("defsult cosnt");
+	}
+	public ConstructorEx(String name) {
+		System.out.println(name);
+		System.out.println("My const df,gdng");
+	}
+	public static void main(String[] args)
+	{
+		ConstructorEx ex = new ConstructorEx();
+		
+	}
+}
+
+
+
+
+
+
