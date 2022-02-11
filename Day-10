@@ -1,0 +1,77 @@
+=================Day-10-Assignment-Session-1==============
+1. Write the Algorithm of Bubble sort.
+i)    begin BubbleSort(array[])
+ii)   for all elements of array
+iii)      if array[i] > array[i+1]
+iv)         swap(array[i], array[i+1])
+          end if
+      end for 
+iv)   return array  
+v)    end BubbleSort
+
+Program:
+========
+
+import java.util.Scanner;
+import java.util.*;
+import java.io.*;
+public class Sorting {
+    public static void sortt(int arr[], int n)
+    {
+        int temp;
+        for(int i = 0; i < n; i++){
+            for(int j = i + 1; j < n; j++)
+            if(arr[i] > arr[j]){
+                temp =arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        System.out.println("Sorted Array is");
+            System.out.print(Arrays.toString(arr));
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i = 0; i < n; i++)
+        {
+            arr[i] = sc.nextInt();
+       }
+       sortt(arr, n);
+    }
+}
+
+
+2. Write the Algorithm for Merge sort.
+i)    beign mergeSort(array[], left, right)
+ii)   If right > left
+iii)  ->find the mid point.
+      mid = (left + right) / 2
+iV)   ->merge first half.
+      mergeSort(array, left, mid)
+V)    ->merge second half.
+      mergeSort(array, mid + 1, right)
+Vi)   ->merge two parts sorted in step iv and v.
+      mergeSort(array, left, mid, right)
+
+
+3. Write a Algorithm to  quicksort
+i)      beign quickSort(array[], left, right)     
+ii)     If left < right      
+iii)        p = partition(array[], left, right)  
+iv)         quickSort(array[], left, p - 1)    
+vi)         quickSort(array[], p + 1, right)
+        end If      
+vii)     partition(array[], left, right)      
+viii)    SET pivot = array[right]     
+iX)      SET i = start-1     
+x)       for j = left to right -1  
+Xi)          If array[j] < pivot   
+xii)            then i = i + 1     
+xiii)           swap array[i] with array[j]      
+xiv)            swap array[i+1] with array[right]
+             End If
+         End For Loop
+xv)     return i+1  
+End quicksort
