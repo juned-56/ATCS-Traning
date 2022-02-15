@@ -1,0 +1,214 @@
+=============================Day-11-Assignement-Session-1===============================
+
+1. Create a class of ArrayList and add the objects by using add method and print the all the values which you added.
+import java.util.ArrayList;
+public class ArrayList1 {
+    public static void main(String[] args) {
+        ArrayList al = new ArrayList();
+        al.add(560);
+        al.add(new Integer(560));
+        al.add("Juned");
+        al.add(new String("Juned"));
+        al.add(23.5f);
+        al.add(new Float(23.5f));
+        al.add(false);
+        al.add(new Boolean(false));
+        al.add('c');
+        al.add(new Character('c'));
+        System.out.println("The values are: "+al);
+    }
+}
+
+
+2. Create a of Linked List add the heterogenous objects print all the objects.
+import java.util.LinkedList;
+public class LinkedListt {
+    public static void main(String[] args) {
+        LinkedList li = new LinkedList();
+        li.add(120);
+        li.add(new Integer(120));
+        li.add("Juned");
+        li.add(new String("Juned"));
+        li.add(23.5f);
+        li.add(new Float(23.5f));
+        li.add(false);
+        li.add(new Boolean(false));
+        li.add('c');
+        li.add(new Character('c'));
+        System.out.println("The values are: "+li);
+    }
+}
+
+3.Create a LinkedList class and apply different methods for that class size(),contains(),isEmpty(),getFisrt(). print the results.
+import java.util.LinkedList;
+public class LinkedListt {
+    public static void main(String[] args) {
+        LinkedList li = new LinkedList();
+        li.add(120);
+        li.add(new Integer(120));
+        li.add("Juned");
+        li.add(new String("Juned"));
+        li.add(23.5f);
+        li.add(new Float(23.5f));
+        li.add(false);
+        li.add(new Boolean(false));
+        li.add('c');
+        li.add(new Character('c'));
+        System.out.println("The values are: "+li);
+        System.out.println("List size: "+li.size());
+        System.out.println("List size: "+li.contains("Juned"));
+        System.out.println("Get the first element: "+li.getFirst());
+        System.out.println("Get the last element: "+li.getLast());
+        System.out.println("Is Empty: "+li.isEmpty());
+        System.out.println("Remove the element: "+li.remove());
+    }
+}
+
+4.class name is test and taking arraylist object add different objects and print the values by using for loop and foreach loop.
+import java.util.ArrayList;
+public class ArrayListt2 {
+    public static void main(String[] args) {
+        ArrayList al = new ArrayList();
+        for(int i = 0; i < 10; i++)
+        {
+            al.add(i);
+        }
+        System.out.println("By using For Loop");
+        System.out.println(al);
+        System.out.println("By using ForEach Loop");
+        for(Object o: al){
+            System.out.println(o);
+        }
+    }
+}
+
+
+5. Create a class with generics(perticular type integer) and add the values print even numbers.
+import java.util.ArrayList;
+
+public class Genericc {
+    public static void main(String[] args)
+    {
+    ArrayList<Integer> al = new ArrayList<Integer>();
+    for(int i = 1; i <= 20; i++)
+    {
+        al.add(i);
+    }
+        System.out.println("Even Numbers are: "+al);
+        System.out.println("Print odd numbers");
+        for(Object o:al){
+            Integer i = (Integer) o;
+            if(i % 2 == 0){
+                System.out.println(i);
+            }
+        }
+    }
+}
+
+
+6. Create a ArrayList class by using Iterator print the values.
+import java.util.ArrayList;
+import java.util.Iterator;
+
+
+public class Iterator1 {
+    public static void main(String[] args) {
+        ArrayList al = new ArrayList();
+        al.add(12);
+        al.add("Juned");
+        al.add('c');
+        al.add(false);
+        al.add(45.6f);
+         System.out.println(al);
+        Iterator itr = al.iterator();
+        while(itr.hasNext()){
+            System.out.println(itr.next());
+        }
+    }
+}
+
+
+7. Create a class with generics and apply ListIterator cursor on that class and print the values.
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+public class ListIteratorr1 {
+    public static void main(String[] args) {
+    ArrayList<String> al = new ArrayList<String>();
+        al.add("Juned");
+        al.add("javed");
+        al.add("jhon");
+        al.add("mone");
+        al.add("sone");
+        al.add("done");
+        ListIterator lit = al.listIterator();
+        while(lit.hasNext())
+        {
+            System.out.println(lit.next());
+        }
+    }
+}
+
+
+==============================Session-2-Assignment===================================
+
+3. Create a of HasSet add the heterogenous objects print all the objects.
+import java.util.HashSet;
+import java.util.Iterator;
+public class HashSet1 {
+    public static void main(String[] args) {
+        HashSet hs = new HashSet();
+        hs.add("Juned");
+        hs.add(23);
+        hs.add(23.f);
+        hs.add(new Integer(34));
+        hs.add('c');
+        hs.add(new Boolean(false));
+        Iterator itr = hs.iterator();
+        while(itr.hasNext()){
+            System.out.println(itr.next());
+        }
+    }
+}
+
+
+4. Create a of Linked HashSet add the heterogenous objects print all the objects.
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.ListIterator;
+public class LinkedHashSet1 {
+    public static void main(String[] args) {
+        LinkedHashSet lhs = new LinkedHashSet();
+        lhs.add("Juned");
+        lhs.add(23);
+        lhs.add(23.f);
+        lhs.add(new Integer(34));
+        lhs.add('c');
+        lhs.add(new Boolean(false));
+            Iterator it = lhs.iterator();
+            while(it.hasNext()){
+                System.out.println(it.next());
+            }
+        
+    }
+}
+
+5. By using Generics create Tree Set and print the all the values.
+import java.util.Iterator;
+import java.util.TreeSet;
+
+public class TreeSet1 {
+    public static void main(String[] args) {
+        TreeSet<String> ts = new TreeSet<String>();
+        ts.add("juned");
+        ts.add("Aman");
+        ts.add("Luse");
+        ts.add("Mone");
+        ts.add("Youre");
+        ts.add("Zeoo");
+        Iterator it = ts.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+    }
+}
