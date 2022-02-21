@@ -143,3 +143,324 @@ public class SleepMethod {
         }
     }
 }
+
+
+
+=============================Case Study-Solution==========================
+Employee.java
+=============
+
+public class Employee {
+	//create private vaiables
+    private String ename;
+    private int esalary;
+    private int ecode;
+    private int epincode;
+    private String email;
+    private String eaddress;
+    //import getter and setter methods
+	public String getEname() {
+		return ename;
+	}
+	public void setEname(String ename) {
+		this.ename = ename;
+	}
+	public int getEsalary() {
+		return esalary;
+	}
+	public void setEsalary(int esalary) {
+		this.esalary = esalary;
+	}
+	public int getEcode() {
+		return ecode;
+	}
+	public void setEcode(int ecode) {
+		this.ecode = ecode;
+	}
+	public int getEpincode() {
+		return epincode;
+	}
+	public void setEpincode(int epincode) {
+		this.epincode = epincode;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getEaddress() {
+		return eaddress;
+	}
+	public void setEaddress(String eaddress) {
+		this.eaddress = eaddress;
+	}
+	//import parametrise constructor
+	public Employee(String ename, int esalary, int ecode, int epincode, String email,String eaddress) {
+		super();
+		this.ename = ename;
+		this.esalary = esalary;
+		this.ecode = ecode;
+		this.epincode = epincode;
+		this.email = email;
+		this.eaddress = eaddress;
+	}
+		
+	// Overrided Object class toString method with custom implementation
+	@Override
+	public String toString() {
+		return "Employee [ename=" + ename + ", esalary=" + esalary + ", ecode=" + ecode + ", epincode=" + epincode
+				+ ", email=" + email + ", eaddress=" + eaddress + "]";
+	}
+}
+
+
+Client.java:
+============
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Client {
+    public static void main(String[] args) {
+    	//creating hashmap collection
+        HashMap<Integer, Employee> employee = new HashMap<Integer, Employee>();
+        //set the default employee id
+        int eid = 100;
+        while(true){
+        	//choose options
+            System.out.println("Employee Management System");
+            System.out.println("1. Add Employee");
+            System.out.println("2. Update Employee");
+            System.out.println("3. Delete Employee Record");
+            System.out.println("4. Get all Details of Employee");
+            System.out.println("5. Get Employee Details");
+            System.out.println("============Choose Option============");
+            Scanner sc = new Scanner(System.in);
+            int n = sc.nextInt();
+            //applying switch case
+            switch(n)
+            {
+                case 1:
+                	System.out.println("=======Enter Employee details========");
+                    System.out.println("Enter the Employee Name");
+                    String ename = sc.next();
+                    System.out.println("Enter Employee salary");
+			        int esalary = sc.nextInt();
+                    System.out.println("Enter Code");
+                    int ecode = sc.nextInt();
+                    System.out.println("Enter Employee address");
+                    String eaddress = sc.next();
+                    System.out.println("Enter Employee Email");
+                    String email = sc.next();
+                    System.out.println("Enter Employee pincode");
+                    int epincode = sc.nextInt();
+                    //creating object of Employee class
+                    Employee ep = new Employee(ename, esalary, ecode, epincode, email, eaddress);
+                    //put the details in the HashMap
+                    employee.put(++eid, ep);
+                    System.out.println("Employee addedd succsfully :"+eid);
+                 break;
+                case 2:
+                    System.out.println("=======Enter to Update Employee details========");
+                    System.out.println("Enter Employee id to update details");
+  	              	int eid1=sc.nextInt();
+                    System.out.println("Enter the Employee Name");
+                    String ename1 = sc.next();
+                    System.out.println("Enter Employee salary");
+			        int esalary1 = sc.nextInt();
+                    System.out.println("Enter Code");
+                    int ecode1 = sc.nextInt();
+                    System.out.println("Enter Employee address");
+                    String eaddress1 = sc.next();
+                    System.out.println("Enter Employee Email");
+                    String email1 = sc.next();
+                    System.out.println("Enter Employee pincode");
+                    int epincode1 = sc.nextInt();
+                    //creating object of Employee class
+                    Employee ep1 = new Employee(ename1, esalary1, ecode1, epincode1, email1, eaddress1);
+                  //put the updated details in the HashMap
+                    employee.put(eid1, ep1);
+                    System.out.println("Employee Details Updated succsfully :"+eid);
+                 break;
+                 case 3:
+                 System.out.println("Enter id to delete Employee Details");
+                 int eid2 = sc.nextInt();
+                 //using remove method to delete the employee detail form the HashMap
+                 Employee emm1 = employee.remove(eid2);
+                 System.out.println("product deleted :"+eid2);
+                 break;
+                 case 4:
+                 System.out.println("=========Employee details========");
+                 //Entryset used to iterate the employee details
+                 Set<Entry<Integer, Employee>> result= employee.entrySet();
+                 Iterator<Entry<Integer, Employee>> itr=result.iterator();
+                 
+                 while(itr.hasNext()) {
+                     Entry<Integer, Employee> finalResult=itr.next();
+                     
+                     System.out.println(finalResult.getKey()+"  "+finalResult.getValue());
+                 }
+                 break;
+                 case 5:
+                 System.out.println("Enter id to get the Employee details");
+                 int eid3 = sc.nextInt();
+                 Employee emm = employee.get(eid3);
+                 System.out.println(emm);
+                 break;
+                 default:
+                 System.out.println("Enter valid option");
+            }
+        }
+    }
+}
+
+
+Output:
+======
+
+Employee Management System
+1. Add Employee
+2. Update Employee
+3. Delete Employee Record
+4. Get all Details of Employee
+5. Get Employee Details
+============Choose Option============
+1
+=======Enter Employee details========
+Enter the Employee Name
+juned
+Enter Employee salary
+500000
+Enter Code
+4550
+Enter Employee address
+mumbai
+Enter Employee Email
+juned@gmail.com
+Enter Employee pincode
+6677
+Employee addedd succsfully :101
+Employee Management System
+1. Add Employee
+2. Update Employee
+3. Delete Employee Record
+4. Get all Details of Employee
+5. Get Employee Details
+============Choose Option============
+1
+=======Enter Employee details========
+Enter the Employee Name
+adnan
+Enter Employee salary
+550000
+Enter Code
+890
+Enter Employee address
+jaipur
+Enter Employee Email
+adnan@gmail.com
+Enter Employee pincode
+1202
+Employee addedd succsfully :102
+Employee Management System
+1. Add Employee
+2. Update Employee
+3. Delete Employee Record
+4. Get all Details of Employee
+5. Get Employee Details
+============Choose Option============
+1
+=======Enter Employee details========
+Enter the Employee Name
+anand
+Enter Employee salary
+35000
+Enter Code
+12220
+Enter Employee address
+delhi
+Enter Employee Email
+anand@gmail.com
+Enter Employee pincode
+1670
+Employee addedd succsfully :103
+Employee Management System
+1. Add Employee
+2. Update Employee
+3. Delete Employee Record
+4. Get all Details of Employee
+5. Get Employee Details
+============Choose Option============
+2
+=======Enter to Update Employee details========
+Enter Employee id to update details
+103
+Enter the Employee Name
+amit
+Enter Employee salary
+40000
+Enter Code
+78990
+Enter Employee address
+delhi
+Enter Employee Email
+amit@gmail.com
+Enter Employee pincode
+12234
+Employee Details Updated succsfully :103
+Employee Management System
+1. Add Employee
+2. Update Employee
+3. Delete Employee Record
+4. Get all Details of Employee
+5. Get Employee Details
+============Choose Option============
+4
+=========Employee details========
+101  Employee [ename=juned, esalary=500000, ecode=4550, epincode=6677, email=juned@gmail.com, eaddress=mumbai]
+102  Employee [ename=adnan, esalary=550000, ecode=890, epincode=1202, email=adnan@gmail.com, eaddress=jaipur]
+103  Employee [ename=amit, esalary=40000, ecode=78990, epincode=12234, email=amit@gmail.com, eaddress=delhi]
+Employee Management System
+1. Add Employee
+2. Update Employee
+3. Delete Employee Record
+4. Get all Details of Employee
+5. Get Employee Details
+============Choose Option============
+5
+Enter id to get the Employee details
+103
+Employee [ename=amit, esalary=40000, ecode=78990, epincode=12234, email=amit@gmail.com, eaddress=delhi]
+Employee Management System
+1. Add Employee
+2. Update Employee
+3. Delete Employee Record
+4. Get all Details of Employee
+5. Get Employee Details
+============Choose Option============
+3
+Enter id to delete Employee Details
+102
+product deleted :102
+Employee Management System
+1. Add Employee
+2. Update Employee
+3. Delete Employee Record
+4. Get all Details of Employee
+5. Get Employee Details
+============Choose Option============
+4
+=========Employee details========
+101  Employee [ename=juned, esalary=500000, ecode=4550, epincode=6677, email=juned@gmail.com, eaddress=mumbai]
+103  Employee [ename=amit, esalary=40000, ecode=78990, epincode=12234, email=amit@gmail.com, eaddress=delhi]
+Employee Management System
+1. Add Employee
+2. Update Employee
+3. Delete Employee Record
+4. Get all Details of Employee
+5. Get Employee Details
+============Choose Option============
