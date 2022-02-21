@@ -1,0 +1,145 @@
+====================================Day-15-Assignement-Session-1===================================
+1. Create a Thread by extending the Thread class.
+class Mythread extends Thread{
+    public void run(){
+        System.out.println("My thread");
+    }
+}
+public class Threading {
+    public static void main(String[] args) {
+        Mythread mt = new Mythread();
+        mt.start();
+        System.out.println("main Thread");
+    }
+}
+
+2. Create a Thread by Implements the Runnable Interface.
+class MyRunnable implements Runnable
+{
+    public void run(){
+        for(int i = 0; i < 10; i++){
+        System.out.println("juned thread");
+    }
+}
+}
+public class Runnablee{
+    public static void main(String[] args) {
+        MyRunnable mr = new MyRunnable();
+        Thread tr = new Thread(mr);
+        tr.start();
+        for(int i = 0; i < 10; i++){
+            System.out.println("main thread");
+        }
+    }
+}
+
+
+3. Create a Thread by extending Thread class set and get the name of thread.
+class MyThread extends Thread{
+    public void run(){
+        System.out.println("Main Thread");
+        System.out.println("Thread name befoe changing: "+Thread.currentThread().getName());
+        System.out.println("Thread name after changing: "+Thread.currentThread().getName());
+    }
+}
+public class SetName {
+    public static void main(String[] args) {
+        MyThread mt1 = new MyThread();
+        MyThread mt = new MyThread();
+        mt.setName("Juned");
+        mt1.start();
+        mt.start();
+        System.out.println("Before chaning the Main thread name "+Thread.currentThread().getName());
+    }    
+}
+
+
+4. Create a Thread by extending Thread class set and get the priority of thread.
+class MyThreadd extends Thread{
+    public void run(){
+        System.out.println("Child Thread");
+        System.out.println("Set the priority Thread: "+Thread.currentThread().getPriority());
+    } 
+}
+public class PriorityThread {
+    public static void main(String[] args) {
+      MyThreadd mt = new MyThreadd();
+      mt.start();
+      mt.setPriority(8);
+      System.out.println("Main thread");
+      System.out.println("Current priority: "+Thread.currentThread().getPriority());
+      Thread.currentThread().setPriority(9);
+      System.out.println("After set the priority: "+Thread.currentThread().getPriority());
+    }
+}
+
+
+5.  Create a Thread by extending Thread class apply Yield Method.
+class MyThread1 extends Thread {
+    public void run(){
+        for(int i = 0; i < 10; i++){
+            System.out.println("Child Thread");
+            Thread.yield();
+        }
+    }
+}
+public class YieldMethod {
+    public static void main(String[] args) {
+        MyThread1 mt = new MyThread1();
+        mt.start();
+        for(int i = 0; i < 10; i++){
+            System.out.println("main thread");
+        }
+    }
+}
+
+
+6. Create a Thread by extending Thread class apply join Method.
+class MyThread2 extends Thread{
+    public void run(){
+        for(int i = 0; i < 10; i++){
+            System.out.println("Child Thread");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                 e.getStackTrace();
+            }
+        }
+    }
+}
+public class JoinMethod {
+    public static void main(String[] args) throws InterruptedException {
+        MyThread2 mt = new MyThread2();
+        mt.start();
+        mt.join(200);
+        for(int i = 0; i < 10; i++){
+            System.out.println("main thread");
+            Thread.yield();
+        }
+    }
+}
+
+
+7. Create a Thread by extending Thread class apply sleep Method
+class MyThread4 extends Thread{
+    public void run(){
+        for(int i = 0; i < 10; i++){
+            System.out.println("Child thread");
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+public class SleepMethod {
+    public static void main(String[] args) throws InterruptedException {
+        MyThread4 mt = new MyThread4();
+        mt.start();
+        Thread.sleep(100);
+        for(int i = 0; i < 10; i++){
+         e.getStackTrace();
+        }
+    }
+}
