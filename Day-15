@@ -144,7 +144,188 @@ public class SleepMethod {
     }
 }
 
+==============================================Session-2===========================================
 
+1. Create a Deadlock class to demonstrate deadlock in multithreading environment.
+class First {
+	public synchronized void dead1(Second b) {
+		System.out.println("Thread First Start Execution");
+		try {
+			Thread.sleep(2000);
+		} 
+        catch (InterruptedException e)
+         {
+			e.printStackTrace();
+		}
+		System.out.println("Thread First trying to call Second method");
+		b.last();
+	}
+	public synchronized void last() {
+		System.out.println("Inside First this is last() method");
+	}
+}
+
+class Second {
+
+	public synchronized void dead2(First a) {
+		System.out.println("Thread Two start Exection");
+		try {
+			Thread.sleep(2000);
+		} 
+        catch (InterruptedException e) 
+        {
+			e.printStackTrace();
+		}
+
+		System.out.println("Thread Two trying to call First last() method");
+		a.last();
+	}
+
+	public synchronized void last() {
+		System.out.println("Inside Two this is last() method");
+	}
+}
+
+public class DeadlockExx extends Thread {
+
+	First fs = new First();
+	Second cs = new Second();
+
+	public void neww() {
+		this.start();
+		fs.dead1(cs);
+	}
+	public void run() {
+		cs.dead2(fs);
+	}
+	public static void main(String[] args) {
+
+		DeadlockExx sc = new DeadlockExx();
+		sc.neww();
+	}
+}
+
+
+2. Implement wait, notify and notifyAll methods.
+class NotifyDemo {
+	int mony = 5000;
+
+	synchronized void withdraw(int mony) {
+		System.out.println("Moving to Withdraw money..........");
+
+		if (this.mony < mony) {
+			System.out.println("Balance is not sufficent waiting for deposite.......");
+
+			try {
+				wait();
+			}
+             catch (InterruptedException e) 
+             {
+				e.printStackTrace();
+			}
+			this.mony -= mony;
+			System.out.println("Withdrwa Successfully completed............");
+		}
+	}
+
+	synchronized void deposite(int mony) {
+		System.out.println("Moving to deposite.........");
+		this.mony += mony;
+		System.out.println("Deposite Successfully completed.........");
+		notify();
+	}
+
+}
+
+public class NotifyWait {
+
+	public static void main(String[] args) {
+
+		NotifyDemo nd = new NotifyDemo();
+
+		new Thread() {
+
+			public void run() {
+				nd.withdraw(55000);
+			}
+		}.start();
+
+		new Thread() {
+
+			public void run() {
+				nd.deposite(1456000);
+			}
+		}.start();
+
+	}
+}
+
+
+3. Create a Account class with methods withdraw, deposit, enquiry, add with synchronized keywords observe the output.
+class NotifyDemo {
+	int mony = 5000;
+
+	synchronized void withdraw(int mony) {
+		System.out.println("Moving to Withdraw money..........");
+
+		if (this.mony < mony) {
+			System.out.println("Balance is not sufficent waiting for deposite.......");
+
+			try {
+				wait();
+			}
+             catch (InterruptedException e) 
+             {
+				e.printStackTrace();
+			}
+			this.mony -= mony;
+			System.out.println("Withdrwa Successfully completed............");
+		}
+	}
+
+	synchronized void deposite(int mony) {
+		System.out.println("Moving to deposite.........");
+		this.mony += mony;
+		System.out.println("Deposite Successfully completed.........");
+		notify();
+	}
+    synchronized void enquery(int mony) {
+		System.out.println("Going to Enquery.........");
+		System.out.println("Enquery Successfully completed.........");
+		notify();
+	}
+
+}
+
+public class NotifyWait {
+
+	public static void main(String[] args) {
+
+		NotifyDemo nd = new NotifyDemo();
+
+		new Thread() {
+
+			public void run() {
+				nd.withdraw(3000);
+			}
+		}.start();
+
+		new Thread() {
+
+			public void run() {
+				nd.deposite(14500);
+			}
+		}.start();
+
+        new Thread() {
+
+			public void run() {
+				nd.enquery(14500);
+			}
+		}.start();
+
+	}
+}
 
 =============================Case Study-Solution==========================
 Employee.java
