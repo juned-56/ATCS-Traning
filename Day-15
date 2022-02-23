@@ -37,8 +37,6 @@ public class Runnablee{
 3. Create a Thread by extending Thread class set and get the name of thread.
 class MyThread extends Thread{
     public void run(){
-        System.out.println("Main Thread");
-        System.out.println("Thread name befoe changing: "+Thread.currentThread().getName());
         System.out.println("Thread name after changing: "+Thread.currentThread().getName());
     }
 }
@@ -50,8 +48,11 @@ public class SetName {
         mt1.start();
         mt.start();
         System.out.println("Before chaning the Main thread name "+Thread.currentThread().getName());
+        Thread.currentThread().setName("Juned Thread");
+        System.out.println("After chaning the Main thread name "+Thread.currentThread().getName());
     }    
 }
+
 
 
 4. Create a Thread by extending Thread class set and get the priority of thread.
