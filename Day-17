@@ -1,0 +1,236 @@
+1. Create a table Student add student details modify the all the table columns by using commands.
+***postgres=# create table student(rollno int, name varchar(20), course varchar(10), address varchar(20), number int);
+CREATE TABLE
+***postgres=# \d student;
+                      Table "public.student"
+ Column  |         Type          | Collation | Nullable | Default
+---------+-----------------------+-----------+----------+---------
+ rollno  | integer               |           |          |
+ name    | character varying(20) |           |          |
+ course  | character varying(10) |           |          |
+ address | character varying(20) |           |          |
+ number  | integer               |           |          |
+***postgres=# insert into student values(11, 'juned', 'B.Tech', 'Mumbai', 300);
+INSERT 0 1
+***postgres=# insert into student values(12, 'Kumar', 'B.Tech', 'Patna', 400);
+INSERT 0 1
+***postgres=# insert into student values(13, 'Ankit', 'B.Com', 'Jaipur', 200);
+INSERT 0 1
+***postgres=# insert into student values(14, 'Amit', 'BBA', 'Jodhpur', 500);
+INSERT 0 1
+***postgres=# select * from student;
+ rollno | name  | course | address | number
+--------+-------+--------+---------+--------
+     11 | juned | B.Tech | Mumbai  |    300
+     12 | Kumar | B.Tech | Patna   |    400
+     13 | Ankit | B.Com  | Jaipur  |    200
+     14 | Amit  | BBA    | Jodhpur |    500
+(4 rows)
+***postgres=# alter table student rename rollno to stroll;
+ALTER TABLE
+***postgres=# alter table student rename name to stname;
+ALTER TABLE
+***postgres=# alter table student rename course to stcourse;
+ALTER TABLE
+***postgres=# alter table student rename address to staddress;
+ALTER TABLE
+***postgres=# alter table student rename number to marks;
+ALTER TABLE
+***postgres=# \d student
+                       Table "public.student"
+  Column   |         Type          | Collation | Nullable | Default
+-----------+-----------------------+-----------+----------+---------
+ stroll    | integer               |           |          |
+ stname    | character varying(20) |           |          |
+ stcourse  | character varying(10) |           |          |
+ staddress | character varying(20) |           |          |
+ marks     | integer               |           |          |
+
+***postgres=# select * from student;
+ stroll | stname | stcourse | staddress | marks
+--------+--------+----------+-----------+-------
+     11 | juned  | B.Tech   | Mumbai    |   300
+     12 | Kumar  | B.Tech   | Patna     |   400
+     13 | Ankit  | B.Com    | Jaipur    |   200
+     14 | Amit   | BBA      | Jodhpur   |   500
+(4 rows)
+
+
+
+
+
+2. Create a tables Manager and Employee add details of both tables and join by using equijoin.
+
+Manager Table:
+==============
+***postgres=# create table manager(deptno int not null, deptname varchar(20), location varchar(20));
+CREATE TABLE
+***postgres=# \d manager
+                      Table "public.manager"
+  Column  |         Type          | Collation | Nullable | Default
+----------+-----------------------+-----------+----------+---------
+ deptno   | integer               |           | not null |
+ deptname | character varying(20) |           |          |
+ location | character varying(20) |           |          |
+ 
+
+Employee Table:
+==============
+***postgres=# create table employee(empno int not null, ename varchar(20), esal int, eemail varchar(20), deptno int not null);
+CREATE TABLE
+***postgres=# \d employee
+                     Table "public.employee"
+ Column |         Type          | Collation | Nullable | Default
+--------+-----------------------+-----------+----------+---------
+ empno  | integer               |           | not null |
+ ename  | character varying(20) |           |          |
+ esal   | integer               |           |          |
+ eemail | character varying(20) |           |          |
+ deptno | integer               |           | not null |
+
+Insert data into Manager Table:
+===============================
+***postgres=# insert into manager values(10, 'CS', 'Delhi');
+INSERT 0 1
+***postgres=# insert into manager values(15, 'CS', 'Mumbai');
+INSERT 0 1
+****postgres=# insert into manager values(20, 'IT', 'Channi');
+INSERT 0 1
+***postgres=# insert into manager values(25, 'Marketing', 'Delhi');
+INSERT 0 1
+***postgres=# select * from manager;
+ deptno | deptname  | location
+--------+-----------+----------
+     10 | CS        | Delhi
+     15 | CS        | Mumbai
+     20 | IT        | Channi
+     25 | Marketing | Delhi
+(4 rows)
+
+
+***postgres=# update manager set deptname = 'Dev' where deptno = 15;
+UPDATE 1
+***postgres=# select * from manager;
+ deptno | deptname  | location
+--------+-----------+----------
+     10 | CS        | Delhi
+     20 | IT        | Channi
+     25 | Marketing | Delhi
+     15 | Dev       | Mumbai
+(4 rows)
+
+Inserting data into Employee Table:
+===================================
+***postgres=# insert into Employee values(1200, 'juned', 50000, 'juned@gmail.com', 10);
+INSERT 0 1
+***postgres=# insert into Employee values(1201, 'anand', 150000, 'anand@gmail.com', 15);
+INSERT 0 1
+***postgres=# insert into Employee values(1202, 'juned', 60000, 'junednite@gmail.com', 20);
+INSERT 0 1
+***postgres=# insert into Employee values(1203, 'ankit', 700000, 'ankit@gmail.com', 25);
+INSERT 0 1
+***postgres=# insert into Employee values(1204, 'akshay', 55000, 'akshay@gmail.com', 20);
+INSERT 0 1
+***postgres=# insert into Employee values(1205, 'juned', 556000, 'juned@gmail.com', 25);
+INSERT 0 1
+***postgres=# insert into Employee values(1206, 'himanshu', 550000, 'himanshu@gmail.com', 15);
+INSERT 0 1
+***postgres=# insert into Employee values(1207, 'amit', 600440, 'amit@gmail.com', 20);
+INSERT 0 1
+***postgres=# insert into Employee values(1208, 'jaikishan', 60040, 'jai@gmail.com', 10);
+INSERT 0 1
+***postgres=# insert into Employee values(1209, 'rehan', 99000, 'rehan@gmail.com', 11);
+INSERT 0 1
+***postgres=# insert into Employee values(1210, 'harsh', 990000, 'harsh@gmail.com', 12);
+INSERT 0 1
+***postgres=# select * from Employee;
+ empno |   ename   |  esal  |       eemail        | deptno
+-------+-----------+--------+---------------------+--------
+  1200 | juned     |  50000 | juned@gmail.com     |     10
+  1201 | anand     | 150000 | anand@gmail.com     |     15
+  1202 | juned     |  60000 | junednite@gmail.com |     20
+  1203 | ankit     | 700000 | ankit@gmail.com     |     25
+  1204 | akshay    |  55000 | akshay@gmail.com    |     20
+  1205 | juned     | 556000 | juned@gmail.com     |     25
+  1206 | himanshu  | 550000 | himanshu@gmail.com  |     15
+  1207 | amit      | 600440 | amit@gmail.com      |     20
+  1208 | jaikishan |  60040 | jai@gmail.com       |     10
+  1209 | rehan     |  99000 | rehan@gmail.com     |     11
+  1210 | harsh     | 990000 | harsh@gmail.com     |     12
+(11 rows)
+
+
+Equijoin:
+=========
+***postgres=# select e.empno, e.ename, e.esal, e.eemail, d.deptname,
+   d.location from employee e, manager d where e.deptno = d.deptno;
+ empno |   ename   |  esal  |       eemail        | deptname  | location
+-------+-----------+--------+---------------------+-----------+----------
+  1208 | jaikishan |  60040 | jai@gmail.com       | CS        | Delhi
+  1200 | juned     |  50000 | juned@gmail.com     | CS        | Delhi
+  1207 | amit      | 600440 | amit@gmail.com      | IT        | Channi
+  1204 | akshay    |  55000 | akshay@gmail.com    | IT        | Channi
+  1202 | juned     |  60000 | junednite@gmail.com | IT        | Channi
+  1205 | juned     | 556000 | juned@gmail.com     | Marketing | Delhi
+  1203 | ankit     | 700000 | ankit@gmail.com     | Marketing | Delhi
+  1206 | himanshu  | 550000 | himanshu@gmail.com  | Dev       | Mumbai
+  1201 | anand     | 150000 | anand@gmail.com     | Dev       | Mumbai
+(9 rows)
+
+
+Full outer join:
+================
+***postgres=# select e.empno, e.ename, e.esal, e.eemail, d.deptname,
+d.location from employee e full outer join manager d on e.deptno = d.deptno;
+ empno |   ename   |  esal  |       eemail        | deptname  | location
+-------+-----------+--------+---------------------+-----------+----------
+  1208 | jaikishan |  60040 | jai@gmail.com       | CS        | Delhi
+  1200 | juned     |  50000 | juned@gmail.com     | CS        | Delhi
+  1207 | amit      | 600440 | amit@gmail.com      | IT        | Channi
+  1204 | akshay    |  55000 | akshay@gmail.com    | IT        | Channi
+  1202 | juned     |  60000 | junednite@gmail.com | IT        | Channi
+  1205 | juned     | 556000 | juned@gmail.com     | Marketing | Delhi
+  1203 | ankit     | 700000 | ankit@gmail.com     | Marketing | Delhi
+  1206 | himanshu  | 550000 | himanshu@gmail.com  | Dev       | Mumbai
+  1201 | anand     | 150000 | anand@gmail.com     | Dev       | Mumbai
+  1209 | rehan     |  99000 | rehan@gmail.com     |           |
+  1210 | harsh     | 990000 | harsh@gmail.com     |           |
+(11 rows)
+
+
+Right outer join:
+=================
+***postgres=# select e.empno, e.ename, e.esal, e.eemail, d.deptname, d.location
+from employee e right outer join manager d on e.deptno = d.deptno;
+ empno |   ename   |  esal  |       eemail        | deptname  | location
+-------+-----------+--------+---------------------+-----------+----------
+  1208 | jaikishan |  60040 | jai@gmail.com       | CS        | Delhi
+  1200 | juned     |  50000 | juned@gmail.com     | CS        | Delhi
+  1207 | amit      | 600440 | amit@gmail.com      | IT        | Channi
+  1204 | akshay    |  55000 | akshay@gmail.com    | IT        | Channi
+  1202 | juned     |  60000 | junednite@gmail.com | IT        | Channi
+  1205 | juned     | 556000 | juned@gmail.com     | Marketing | Delhi
+  1203 | ankit     | 700000 | ankit@gmail.com     | Marketing | Delhi
+  1206 | himanshu  | 550000 | himanshu@gmail.com  | Dev       | Mumbai
+  1201 | anand     | 150000 | anand@gmail.com     | Dev       | Mumbai
+(9 rows)
+
+
+Left outer join:
+================
+postgres=# select e.empno, e.ename, e.esal, e.eemail, d.deptname, d.location
+from employee e left outer join manager d on e.deptno = d.deptno;
+ empno |   ename   |  esal  |       eemail        | deptname  | location
+-------+-----------+--------+---------------------+-----------+----------
+  1208 | jaikishan |  60040 | jai@gmail.com       | CS        | Delhi
+  1200 | juned     |  50000 | juned@gmail.com     | CS        | Delhi
+  1207 | amit      | 600440 | amit@gmail.com      | IT        | Channi
+  1204 | akshay    |  55000 | akshay@gmail.com    | IT        | Channi
+  1202 | juned     |  60000 | junednite@gmail.com | IT        | Channi
+  1205 | juned     | 556000 | juned@gmail.com     | Marketing | Delhi
+  1203 | ankit     | 700000 | ankit@gmail.com     | Marketing | Delhi
+  1206 | himanshu  | 550000 | himanshu@gmail.com  | Dev       | Mumbai
+  1201 | anand     | 150000 | anand@gmail.com     | Dev       | Mumbai
+  1209 | rehan     |  99000 | rehan@gmail.com     |           |
+  1210 | harsh     | 990000 | harsh@gmail.com     |           |
+(11 rows)
