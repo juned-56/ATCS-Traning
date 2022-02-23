@@ -1,0 +1,168 @@
+=========================Day-16-Assignement-Session-1=========================
+
+1. Working with Lambda & Lambda Block
+
+Lambda:
+=======
+
+interface I{
+    boolean check(int n);
+}
+public class LambdaEx1 {
+    public static void main(String[] args) {
+       I checkEven = (n) -> (n % 2) == 0;
+       if(checkEven.check(16))
+        System.out.println("Number is Even");
+        else
+        System.out.println("Number is Odd");
+    }
+}
+
+Lambda Block:
+=============
+
+interface Funcc {
+    int calculateFact(int number);
+}
+class LambdaBlockEx {
+    public static void main(String[] args)
+    {
+        Funcc fc = (number) ->
+        {
+            int res = 1;
+            for(int i = 1; i <= number; i++)
+                res = i * res;
+            return res;
+        };
+        System.out.println("Factorial of 5 : " + fc.calculateFact(5));
+    }
+}
+
+
+
+2. Create a Runnable interface and apply lamda expression.
+public class RunnalbeInterfaceLambda {
+    public static void main(String[] args) {
+        Runnable r =  ()-> {
+            for(int i = 0; i< 10; i++){
+                System.out.println("Child Thread");
+            }
+        };
+        Thread th = new Thread(r);
+        th.start();
+        for(int i = 0; i < 10; i++){
+            System.out.println("main thread");
+        }
+    }
+}
+
+
+3. Create a class SqureRoot apply lamdaexpreesions.
+interface Funcc1{
+    int squareroot(int n);
+}
+public class SquareRoot {
+    public static void main(String[] args) {
+        Funcc1 squareRoot = (n) -> {
+            double result = Math.sqrt(n);
+            return (int) result;
+        };
+        System.out.println("Factorial of given Number is: " + squareRoot.squareroot(25));
+    }
+}
+
+
+4. Create a class with addition method with parameters.
+interface Additionnn{  
+    int addition(int a,int b);  
+}   
+public class AdditionMethod{  
+    public static void main(String[] args) {  
+        Additionnn add = (a,b)->(a+b);  
+        System.out.println(add.addition(5,5));    
+    }  
+}  
+
+5. Create a ArrayList class add values apply lamda expression.
+import java.util.ArrayList;
+class Student{
+    String name;
+    int marks;
+    public Student(String name, int marks){
+        this.name = name;
+        this.marks = marks;
+    }
+}
+public class ArrayListLambdaExpression {
+    public static void main(String[] args) {
+        ArrayList<Student> al = new ArrayList<Student>();
+        al.add(new Student("Juned", 70));
+        al.add(new Student("Anand", 90));
+        al.add(new Student("Akshay", 99));
+        al.add(new Student("Kumar", 80));
+        al.add(new Student("Ankit", 80));
+        al.removeIf(stu -> (stu.marks < 80));
+        System.out.println("The output is: ");
+        for(Student stu:al){
+            System.out.println(stu.name);
+        }
+    }
+}
+
+
+========================================Session-2====================================
+
+1. Take predicate functional interface test given value even number or not.
+import java.util.function.Predicate;
+public class PredicateEx {
+public static void main(String[] args) {
+	Predicate<Integer> p1 = i->i % 2==0;
+	System.out.println("The number 45 is Even/odd: "+p1.test(45));
+	System.out.println("The number 12 is Even/odd: "+p1.test(12));
+	System.out.println("The number 10 is Even/odd: "+p1.test(10));
+	System.out.println("The number 13 is Even/odd: "+p1.test(13));
+}
+}
+
+
+2. Take predicate functional interface test length of the given name is greater than 6 or not?
+import java.util.function.Predicate;
+
+public class PeredicateEx1 {
+public static void main(String[] args) {
+	Predicate<String> p = s -> s.length() > 6;
+	System.out.println("The length of 'Juned' is greater then 6 or not: "+p.test("Juned"));
+	System.out.println("The length of 'jaipur' is greater then 6 or not: "+p.test("jaipur"));
+	System.out.println("The length of 'Hydrabad' is greater then 6 or not: "+p.test("Hydrabad"));
+	System.out.println("The length of 'Maharashtra' is greater then 6 or not: "+p.test("Maharashtra"));
+}
+}
+
+
+3. Create a employee class with ArrayList class add key value pair name,salary, findout salary>7000?
+
+import java.util.ArrayList;
+import java.util.function.Predicate;
+class Employee1{
+    String name;
+    int salary;
+    public Employee1(String name, int salary){
+        this.name = name;
+        this.salary = salary;
+    }
+}
+public class ArrayListLambdaExpressionEmployee {
+    public static void main(String[] args) {
+        ArrayList<Employee1> al = new ArrayList<Employee1>();
+        al.add(new Employee1("Juned", 50000));
+        al.add(new Employee1("Anand", 456000));
+        al.add(new Employee1("Kumar", 23450));
+        al.add(new Employee1("Akshay", 6000));
+        al.add(new Employee1("Harsil", 89700));
+        al.add(new Employee1("Ankit", 1200));
+        Predicate<Employee1> p = e -> e.salary > 7000;
+        for(Employee1 em : al) {
+            System.out.println(em.name +" has salary greater than 7000 : "+p.test(em));
+        }
+    }
+}
