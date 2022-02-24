@@ -1,0 +1,202 @@
+================================Day-18-Assignment-session-1==================================
+JDBC Connection:
+================
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class SqlQuesiresEx {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		//loading driver class
+		Class.forName("org.postgresql.Driver");
+		//create connection
+		Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost/jdbcdemo", "postgres", "Juned@56");
+		//statement creation
+		Statement st = connect.createStatement();
+		//Execute query
+		boolean result = st.execute("create table stu(stname varchar(20), stroll int)");
+		//close the connection
+		connect.close();
+		System.out.println("Table created: "+result);
+	}
+}
+
+
+Table Created in Database:
+==========================
+jdbcdemo=# \d stu
+                       Table "public.stu"
+ Column |         Type          | Collation | Nullable | Default
+--------+-----------------------+-----------+----------+---------
+ stname | character varying(20) |           |          |
+ stroll | integer               |           |          |
+
+
+***Data Insertion into the Table:
+=================================
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class SqlQueriesEx1 {
+public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	Class.forName("org.postgresql.Driver");
+	Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost/jdbcdemo","postgres","Juned@56");
+	Statement st = connect.createStatement();
+	int result = st.executeUpdate("insert into stu values('juned', 22)");
+	int result0 = st.executeUpdate("insert into stu values('amit', 23)");
+	int result1 = st.executeUpdate("insert into stu values('anand', 24)");
+	int result2 = st.executeUpdate("insert into stu values('ankit', 25)");
+	connect.close();
+	System.out.println("Insert record successfull: "+result);
+	System.out.println("Insert record successfull: "+result0);
+	System.out.println("Insert record successfull: "+result1);
+	System.out.println("Insert record successfull: "+result2);
+	}
+}
+
+
+Data inserted into the table:
+=============================
+
+jdbcdemo=# select * from stu;
+ stname | stroll
+--------+--------
+ juned  |     22
+ amit   |     23
+ anand  |     24
+ ankit  |     25
+(4 rows)
+
+
+***Update query:
+================
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class SqlQueriesEx2 {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		Class.forName("org.postgresql.Driver");
+		Connection connet = DriverManager.getConnection("jdbc:postgresql://localhost/jdbcdemo", "postgres", "Juned@56");
+		Statement st = connet.createStatement();
+		int result = st.executeUpdate("update stu set stname = 'kumar' where stroll = 23");
+		connet.close();
+		System.out.println("Updeted record: "+result);
+	}
+}
+
+Data updated in the table:
+==========================
+jdbcdemo=# select * from stu;
+ stname | stroll
+--------+--------
+ juned  |     22
+ anand  |     24
+ ankit  |     25
+ kumar  |     23
+(4 rows)
+
+
+***Fetching all the data from the database:
+===========================================
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class SqlQueriesEx3 {
+public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	Class.forName("org.postgresql.Driver");
+	Connection connet = DriverManager.getConnection("jdbc:postgresql://localhost/jdbcdemo", "postgres", "Juned@56");
+	Statement st = connet.createStatement();
+	ResultSet result = st.executeQuery("select * from stu");
+	while(result.next()) {
+		System.out.println(result.getString(1)+" "+result.getInt(2));
+	}
+	connet.close();
+	System.out.println("Featching data: ");
+}
+}
+
+All data featched:
+==================
+juned 22
+anand 24
+ankit 25
+kumar 23
+Featching data: 
+
+
+================================Day-18-Assignment-session-2==================================
+1. create a class with end-user implementation scanner class, username and password matching or not otherwise it will give an error.
+Database:
+=========
+***jdbcdemo=# create table facebook(username varchar(20), password int);
+CREATE TABLE
+***jdbcdemo=# \d facebook
+                      Table "public.facebook"
+  Column  |         Type          | Collation | Nullable | Default
+----------+-----------------------+-----------+----------+---------
+ username | character varying(20) |           |          |
+ password | integer               |           |          |
+
+***jdbcdemo=# insert into facebook values('juned_56', 12345);
+INSERT 0 1
+***jdbcdemo=# insert into facebook values('kumar_@56', 76854);
+INSERT 0 1
+***jdbcdemo=# insert into facebook values('anand@@45', 999999);
+INSERT 0 1
+***jdbcdemo=# select * from facebook;
+ username  | password
+-----------+----------
+ juned_56  |    12345
+ kumar_@56 |    76854
+ anand@@45 |   999999
+
+Data inserted:
+==============
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class PreparedEx {
+public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	Scanner sc = new Scanner(System.in);
+	System.out.println("Enter the username: ");
+	String uname = sc.next();
+	System.out.println("Enter the password");
+	int pwd = sc.nextInt();
+	Class.forName("org.postgresql.Driver");
+	Connection connet = DriverManager.getConnection("jdbc:postgresql://localhost/jdbcdemo", "postgres", "Juned@56");
+	PreparedStatement st = connet.prepareStatement("select * from facebook where username = ? and password = ?");
+	st.setString(1, uname);
+	st.setInt(2, pwd);
+	ResultSet result = st.executeQuery();
+	if(result.next()) {
+		System.out.println("login successfull: ");
+	}
+	else
+	{
+		System.out.println("Wrong password try again!!!!!!!");
+	}
+	connet.close();
+	}
+}
+
+Output:
+=======
+Enter the username: 
+juned_56
+Enter the password
+12345
+login successfull: 
