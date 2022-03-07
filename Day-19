@@ -1,0 +1,216 @@
+===================Regular Expression=====================
+
+
+1. Pattern Matching
+package RegexPractice;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegularExpressionPattern {
+	public static void main(String[] args) {
+		int count  = 0;
+		Pattern pt = Pattern.compile("az");
+		Matcher mt = pt.matcher("adazsdazcfazvgaazaz");
+		while(mt.find()) {
+			count++;
+			System.out.println(mt.start()+" "+mt.end()+" "+mt.group());
+		}
+		System.out.println("number of occr: "+count);
+	}
+	
+}
+
+
+2. Character Matching
+package RegexPractice;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+public class RegularExpressionCharacterMatching {
+	public static void main(String[] args) {
+		Pattern pt = Pattern.compile("[abc]");
+		Matcher mt = pt.matcher("nwqea@$%&cvdga&&c");
+		while(mt.find()) {
+		System.out.println("Starting Position: "+mt.start()+" Ending Position: "+mt.end()+" Character is: "+mt.group());
+		}
+	}
+}
+
+
+3. Space Matching
+package RegexPractice;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+public class RegularExpressionSpaceMatching {
+	public static void main(String[] args) {
+		Pattern pt = Pattern.compile("\\s");
+		Matcher mt = pt.matcher(" nwqea@$% &cv dga&&c");
+		while(mt.find()) {
+		System.out.println("Starting Position: "+mt.start()+" Ending Position: "+mt.end());
+		}
+	}
+}
+
+
+4. Split Example
+package RegexPractice;
+
+import java.util.regex.Pattern;
+
+public class RegularExpressionSplitEx {
+	public static void main(String[] args) {
+		Pattern pt = Pattern.compile("j");
+		String str[] = pt.split("juned khan jhone ajmer afjal");
+		for(String str1 : str) {
+			System.out.println(str1);
+		}
+	}
+}
+
+5. Phone Number Validate Example
+package RegexPractice;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegularExpressionValidatePhoneNumber {
+	public static void main(String[] args) {
+		Pattern pt = Pattern.compile("(0 | 91) ? [7 - 9] [0 - 9] {9}");
+		Matcher mt = pt.matcher(args[0]);
+		if(mt.find() && mt.group().equals(args[0])) {
+			System.out.println("Valid mobile number");
+		}
+		else {
+			System.out.println("Invalid number");
+	}
+}
+
+}
+
+ 
+
+=============================Date and Time======================
+
+1. Current Date and Time
+package DateAndTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
+public class CurrentDateTime {
+	public static void main(String[] args) {
+		LocalDate date = LocalDate.now();
+		System.out.println("Current date is: "+date);
+		LocalTime time = LocalTime.now();
+		System.out.println("Current time is: "+time);
+	}
+}
+
+
+2. Current Date
+package DateAndTime;
+
+import java.time.LocalDate;
+
+public class CurrentDate {
+	public static void main(String[] args) {
+		LocalDate ld = LocalDate.now();
+		System.out.println(ld);
+		int dd = ld.getDayOfMonth();
+		int mm = ld.getMonthValue();
+		int yy = ld.getYear();
+		System.out.println(dd+" "+mm+" "+yy);
+		System.out.printf("%d-%d-%d",dd,mm,yy);
+	}
+}
+
+
+3. Current Time
+package DateAndTime;
+import java.time.LocalTime;
+public class CurrentTime {
+	public static void main(String[] args) {
+		LocalTime lt = LocalTime.now();
+		System.out.println(lt);
+		int h = lt.getHour();
+		int m = lt.getMinute();
+		int s = lt.getSecond();
+		int n = lt.getNano();
+		System.out.println(h+" "+m+" "+s+" "+n);
+		System.out.printf("%d:%d:%d:%d",h,m,s,n);
+	}
+}
+
+
+4. Date And Time
+package DateAndTime;
+
+import java.time.LocalDateTime;
+
+public class DateAndTime {
+	public static void main(String[] args) {
+		LocalDateTime ldt = LocalDateTime.now();
+		System.out.println(ldt);
+	}
+}
+
+
+5. Particular Date And Time
+import java.time.LocalDateTime;
+
+public class ParticularDateandTimeEx5 {
+	public static void main(String[] args) {
+		LocalDateTime dt = LocalDateTime.of(2022, 03, 06, 12, 34, 56);
+		System.out.println(dt);
+		System.out.println("After six months: "+dt.plusMonths(6));
+		System.out.println("Before six months: "+dt.minusMonths(6));
+	}
+}
+
+
+6. Period 
+package DateAndTime;
+
+import java.time.LocalDate;
+import java.time.Period;
+
+public class PeriodEx {
+	public static void main(String[] args) {
+		LocalDate lt = LocalDate.of(2001, 05, 15);
+		LocalDate dob = LocalDate.now();
+		Period pd = Period.between(lt, dob);
+		System.out.printf("Age is %d years %d Months %d days", pd.getYears(),pd.getMonths(),pd.getDays());
+	}
+}
+
+
+7. LeapYear 
+import java.time.Year;
+import java.util.Scanner;
+public class LeapYear {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the year");
+		int n = sc.nextInt();
+		Year y = Year.of(n);
+		if(y.isLeap()) {
+			System.out.printf("%d year is a leap year: ",n);
+		}
+		else {
+			System.out.printf("%d year is not a leap year: ", n);
+		}
+	}
+}
+
+
+8. ZonedClass
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
+public class ZonClassEx {
+	public static void main(String[] args) {
+		ZoneId zone = ZoneId.systemDefault();
+		System.out.println(zone);	
+		ZoneId id = ZoneId.of("Europe/Kaliningrad");
+		ZonedDateTime dt = ZonedDateTime.now(id);
+		System.out.println(dt);
+	}
+}
+ 
