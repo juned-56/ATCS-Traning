@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+               http://www.springframework.org/schema/context
+               http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+               <context:annotation-config></context:annotation-config>
+
+<bean class = "com.spring.ex.Product" id = "juned" autowire="constructor">    
+ <constructor-arg name="pid" value = "112"></constructor-arg>
+ <constructor-arg name="pname" value = "LED"></constructor-arg>
+ <constructor-arg name="pprice" value = "260"></constructor-arg>
+ <constructor-arg name="prating" value = "5 star"></constructor-arg>
+ 
+</bean>
+ <bean class = "com.spring.ex.Address" id = "add">     
+<constructor-arg  name = "city" value = "gorakhpur"></constructor-arg>
+<constructor-arg  name = "state" value = "uttar pradesh"></constructor-arg >
+<constructor-arg name = "dist" value = "maharajganj"></constructor-arg>
+<constructor-arg name = "country" value = "India"></constructor-arg>
+</bean>
+</beans>

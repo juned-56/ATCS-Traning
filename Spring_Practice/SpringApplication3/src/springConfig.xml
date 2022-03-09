@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+               http://www.springframework.org/schema/context
+               http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+               <context:annotation-config></context:annotation-config>
+
+<bean class = "com.spring.ex.Student" id = "juned">    
+ <property name="sid" value = "12"></property>
+ <property name="sname" value = "junedkhan"></property>
+ <property name="smarks" value = "500"></property>
+ <property name="scourse" value = "B.Tech"></property>
+ <property name = "Address" ref = "juned1"></property> 
+</bean>
+ <bean class = "com.spring.ex.Address" id = "juned1">     
+<property  name = "htwn" value = "kolhui bazar"></property>
+<property  name = "state" value = "uttar pradesh"></property >
+<property name = "disrict" value = "maharajganj"></property>
+</bean>
+</beans>
