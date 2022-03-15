@@ -22,7 +22,7 @@ public class ProductUi {
 		
 		ProductService service = context.getBean("ps",ProductServiceImpl.class);
 		while (true) {
-			System.out.println("\n\n\n\n\nProduct Crud Operation:");
+			System.out.println("Product Crud Operation:");
 			System.out.println("1.Create Product");
 			System.out.println("2.Find Product");
 			System.out.println("3.Update Product");
@@ -101,3 +101,160 @@ public class ProductUi {
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+=====================================Output================================================
+Product Crud Operation:
+1.Create Product
+2.Find Product
+3.Update Product
+4.Delete Product
+5.List All Products
+6.Exit
+Enter your choice:
+1
+Enter Product Name: 
+CFL
+Enter Product Price: 
+2000
+Enter Product Deliver Address: 
+Mumbai
+Hibernate: 
+    select
+        nextval ('hibernate_sequence')
+Hibernate: 
+    insert 
+    into
+        product_info
+        (pAddress, pName, pPrice, pId) 
+    values
+        (?, ?, ?, ?)
+Product Inserted
+
+Product Crud Operation:
+1.Create Product
+2.Find Product
+3.Update Product
+4.Delete Product
+5.List All Products
+6.Exit
+Enter your choice:
+1
+Enter Product Name: 
+LED
+Enter Product Price: 
+34000
+Enter Product Deliver Address: 
+Goa
+Hibernate: 
+    select
+        nextval ('hibernate_sequence')
+Hibernate: 
+    insert 
+    into
+        product_info
+        (pAddress, pName, pPrice, pId) 
+    values
+        (?, ?, ?, ?)
+Product Inserted
+
+Product Crud Operation:
+1.Create Product
+2.Find Product
+3.Update Product
+4.Delete Product
+5.List All Products
+6.Exit
+Enter your choice:
+5
+Hibernate: 
+    select
+        product0_.pId as pId1_0_,
+        product0_.pAddress as pAddress2_0_,
+        product0_.pName as pName3_0_,
+        product0_.pPrice as pPrice4_0_ 
+    from
+        product_info product0_
+	 Product Id  	 Product Name  	 Product Price 	 Dileviry Address
+********************************************
+ 	1 		 CFL 	 	2000 	 	Mumbai
+ 	2 		 LED 	 	34000 	 	Goa
+********************************************
+
+Product Crud Operation:
+1.Create Product
+2.Find Product
+3.Update Product
+4.Delete Product
+5.List All Products
+6.Exit
+Enter your choice:
+2
+Enter Product Id to fetch Product:
+1
+Hibernate: 
+    select
+        product0_.pId as pId1_0_0_,
+        product0_.pAddress as pAddress2_0_0_,
+        product0_.pName as pName3_0_0_,
+        product0_.pPrice as pPrice4_0_0_ 
+    from
+        product_info product0_ 
+    where
+        product0_.pId=?
+Product Id:1
+Product Name:CFL
+Product Price:2000
+Product City:Mumbai
+
+
+Product Crud Operation:
+1.Create Product
+2.Find Product
+3.Update Product
+4.Delete Product
+5.List All Products
+6.Exit
+Enter your choice:
+4
+Enter Product Id to Delete Product:
+1
+Hibernate: 
+    select
+        product0_.pId as pId1_0_0_,
+        product0_.pAddress as pAddress2_0_0_,
+        product0_.pName as pName3_0_0_,
+        product0_.pPrice as pPrice4_0_0_ 
+    from
+        product_info product0_ 
+    where
+        product0_.pId=?
+Hibernate: 
+    delete 
+    from
+        product_info 
+    where
+        pId=?
+Product deleted successfully
+
+=================================Database======================================
+practice=# select * from product_info;
+ pid | paddress | pname | pprice
+-----+----------+-------+--------
+   1 | Mumbai   | CFL   |   2000
+   2 | Goa      | LED   |  34000
+(2 rows)
+
+
+practice=# select * from product_info;
+ pid | paddress | pname | pprice
+-----+----------+-------+--------
+   2 | Goa      | LED   |  34000
+(1 row)
