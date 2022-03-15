@@ -9,7 +9,7 @@
                http://www.springframework.org/schema/context/spring-context-3.0.xsd">
                <context:annotation-config></context:annotation-config>
 
-<bean class = "com.product.ex.Product" id = "juned"><!-- Employee sleeping = new Employee(); -->
+<bean class = "com.product.ex.Product" id = "juned">
  <property  name = "pid" value = "111"></property>
 <property  name = "pname" value = "CFL"></property >
 <property name = "pprice" value = "500"></property>
